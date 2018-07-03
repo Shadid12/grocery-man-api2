@@ -11,6 +11,7 @@ mongoose.connect('mongodb://root2:shadid123456@ds042607.mlab.com:42607/shadid')
   
 
 const itemRoutes = require('./api/routes/items');
+const userRoutes = require('./api/routes/users');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/items', itemRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
